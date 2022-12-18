@@ -1,0 +1,26 @@
+PODS:
+  - AMPopTip (4.10.0)
+  - IQKeyboardManagerSwift (6.5.10)
+  - SQLite.swift (0.14.1):
+    - SQLite.swift/standard (= 0.14.1)
+  - SQLite.swift/standard (0.14.1)
+
+DEPENDENCIES:
+  - AMPopTip
+  - IQKeyboardManagerSwift
+  - SQLite.swift
+
+SPEC REPOS:
+  trunk:
+    - AMPopTip
+    - IQKeyboardManagerSwift
+    - SQLite.swift
+
+SPEC CHECKSUMS:
+  AMPopTip: 4630471652faf06872f72a39bfcb6f5b68a7e208
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  SQLite.swift: 2992550ebf3c5b268bf4352603e3df87d2a4ed72
+
+PODFILE CHECKSUM: 3decfd8145e681ba92f557a20aaf81d7f98c0658
+
+COCOAPODS: 1.11.3

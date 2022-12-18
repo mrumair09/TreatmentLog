@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Inovice" representedClassName="Inovice" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="dueAmount" optional="YES" attributeType="String"/>
+        <attribute name="endTime" optional="YES" attributeType="String"/>
+        <attribute name="laserRentName1" optional="YES" attributeType="String"/>
+        <attribute name="laserRentName2" optional="YES" attributeType="String"/>
+        <attribute name="laserRentName3" optional="YES" attributeType="String"/>
+        <attribute name="laserRentName4" optional="YES" attributeType="String"/>
+        <attribute name="laserRentValue1" optional="YES" attributeType="String"/>
+        <attribute name="laserRentValue2" optional="YES" attributeType="String"/>
+        <attribute name="laserRentValue3" optional="YES" attributeType="String"/>
+        <attribute name="laserRentValue4" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesName1" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesName2" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesName3" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesName4" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesValue1" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesValue2" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesValue3" optional="YES" attributeType="String"/>
+        <attribute name="otherChargesValue4" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <attribute name="totalChargesName" optional="YES" attributeType="String"/>
+        <attribute name="totalChargesValue" optional="YES" attributeType="String"/>
+        <attribute name="totalTime" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="InvoiceRecord" representedClassName="InvoiceRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="areaTreated" optional="YES" attributeType="String"/>
+        <attribute name="cooling" optional="YES" attributeType="String"/>
+        <attribute name="density" optional="YES" attributeType="String"/>
+        <attribute name="dwell" optional="YES" attributeType="String"/>
+        <attribute name="energy" optional="YES" attributeType="String"/>
+        <attribute name="fee" optional="YES" attributeType="String"/>
+        <attribute name="laser" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="passes" optional="YES" attributeType="String"/>
+        <attribute name="patient" optional="YES" attributeType="String"/>
+        <attribute name="pitch" optional="YES" attributeType="String"/>
+        <attribute name="pulses" optional="YES" attributeType="String"/>
+        <attribute name="pulseW" optional="YES" attributeType="String"/>
+        <attribute name="splitFee" optional="YES" attributeType="String"/>
+        <attribute name="spot" optional="YES" attributeType="String"/>
+        <attribute name="wvlgth" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Technician" representedClassName="Technician" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>
