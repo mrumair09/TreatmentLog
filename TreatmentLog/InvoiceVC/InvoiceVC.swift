@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
-
+    
     var InvoiceRecordData = [NSFetchRequestResult]()
     var InvoiceData = [NSFetchRequestResult]()
     var result: NSManagedObject!
@@ -69,12 +69,14 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         invoiceTable.register(UINib(nibName: "InvoiceTVC", bundle: nil), forCellReuseIdentifier: "InvoiceTVC")
         
         txtDate.delegate = self
+        txtStartTime.delegate = self
+        txtFinishTime.delegate = self
         txtOtherCharges1Amount.delegate = self
         txtLaserFee1Amount.delegate = self
         
         decorateUI()
         
-//        InvoiceRecordData = DataManager.shared.retrieveData(entity: entityRecord)
+        //        InvoiceRecordData = DataManager.shared.retrieveData(entity: entityRecord)
         let data = DataManager.shared.retrieveData(entity: entityRecord)
         
         
@@ -83,12 +85,12 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         
         if (InvoiceData.count != 0){
             invoiceResult = InvoiceData[0] as? NSManagedObject
-//            DataManager.shared.deleteAllData(entity: entity)
+            //            DataManager.shared.deleteAllData(entity: entity)
             setupData()
         }
         calculateTotal()
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -97,7 +99,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     
     func decorateUI(){
         addborder()
-
+        
         lblAddress.text = " Aesthetic Mobile Laser Services, Inc \n PO Box 8550 \n Deerfield Beach, FL 33443 \n Tel:  (954) 480-2600 \n Fax: (954) 480-6020"
         let techniciandata  = DataManager.shared.retrieveData(entity: "Technician")
         if (techniciandata.count != 0){
@@ -105,7 +107,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
             var name  = result?.value(forKey: "name") as! String
             lblTechnicianName.text = "TECHNICIAN: \(name ?? "")"
         }
-       
+        
     }
     
     
@@ -134,7 +136,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         txtTotalHours.layer.borderColor =  UIColor.black.cgColor
         txtDate.layer.borderColor =  UIColor.black.cgColor
         addressTextView.layer.borderColor =  UIColor.black.cgColor
-
+        
         txtTotalFeeCharges.layer.borderWidth  = 0.5
         txtTotalFeeAmount.layer.borderWidth  = 0.5
         txtOtherCharges1Text.layer.borderWidth  = 0.5
@@ -172,7 +174,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         
         return cell
     }
-
+    
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -181,7 +183,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         
         DataManager.shared.deleteAllData(entity: entity)
         DataManager.shared.deleteAllData(entity: "InvoiceRecord")
-        
+        clearData()
     }
     
     @IBAction func shareAction(_ sender: Any) {
@@ -205,18 +207,49 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     
     func  textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if (textField == txtDate){
+            DatePickerToolTip.shared()?.showDatePicker(pointedView: txtDate) {  message in
+                self.txtDate.text = message
+            }
+            return false
+        }
+        if  (textField == txtStartTime){
+            DatePickerToolTip.shared()?.showTimePicker(pointedView: txtStartTime, onTimeClickListener: { message in
+                self.txtStartTime.text = message
+                self.txtTotalHours.text = self.calculate(time1: self.txtStartTime.text ?? "", time2: self.txtFinishTime.text ?? "")
+            })
             
             return false
         }
+        if  (textField == txtFinishTime){
+            DatePickerToolTip.shared()?.showTimePicker(pointedView: txtStartTime, onTimeClickListener: { message in
+                self.txtFinishTime.text = message
+                self.txtTotalHours.text = self.calculate(time1: self.txtStartTime.text ?? "", time2: self.txtFinishTime.text ?? "")
+            })
+            
+            return false
+            
+        }
         calculateTotal()
         return true
+    }
+    
+    func calculate(time1:String,time2:String)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        let date1 = formatter.date(from: time1)!
+        let date2 = formatter.date(from: time2)!
+        let elapsedTime = date2.timeIntervalSince(date1)
+        let ti = NSInteger(elapsedTime)
+        let minutes = (ti / 60) % 60
+        let hours = (ti / 3600)
+        return String(format: "%0.2d:%0.2d",hours,minutes)
     }
     
     func setupData(){
         
         addressTextView.text = invoiceResult.value(forKey: "comment") as? String ?? ""
         txtDate.text = invoiceResult.value(forKey: "date") as? String ?? ""
-//        lblGrandTotal.text = invoiceResult.value(forKey: "dueAmount") as? String ?? ""
+        //        lblGrandTotal.text = invoiceResult.value(forKey: "dueAmount") as? String ?? ""
         txtFinishTime.text = invoiceResult.value(forKey: "endTime") as? String ?? ""
         txtOtherCharges1Text.text = invoiceResult.value(forKey: "otherChargesName1") as? String ?? ""
         txtOtherCharges2Text.text = invoiceResult.value(forKey: "otherChargesName2") as? String ?? ""
@@ -240,14 +273,43 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         txtTotalFeeCharges.text = invoiceResult.value(forKey: "totalChargesName") as? String ?? ""
         txtTotalFeeAmount.text = invoiceResult.value(forKey: "totalChargesValue") as? String ?? ""
         txtTotalHours.text = invoiceResult.value(forKey: "totalTime") as? String ?? ""
-     
+        
+    }
+    
+    func clearData(){
+        addressTextView.text = ""
+        txtDate.text = ""
+        lblGrandTotal.text = ""
+        txtFinishTime.text = ""
+        txtOtherCharges1Text.text = ""
+        txtOtherCharges2Text.text = ""
+        txtOtherCharges3Text.text = ""
+        txtOtherCharges4Text.text = ""
+        txtOtherCharges1Amount.text = ""
+        txtOtherCharges2Amount.text = ""
+        txtOtherCharges3Amount.text = ""
+        txtOtherCharges4Amount.text = ""
+        txtLaserFee1Text.text = ""
+        txtLaserFee2Text.text = ""
+        txtLaserFee3Text.text = ""
+        txtLaserFee4Text.text = ""
+        txtLaserFee1Amount.text = ""
+        txtLaserFee2Amount.text = ""
+        txtLaserFee3Amount.text = ""
+        txtLaserFee4Amount.text = ""
+        txtStartTime.text = ""
+        txtTotalFeeCharges.text = ""
+        txtTotalFeeAmount.text = ""
+        txtTotalHours.text = ""
+        
+        
     }
     
     func savedata(){
         
         dataArr["comment"] = addressTextView.text ?? ""
         dataArr["date"] = txtDate.text ?? ""
-//        dataArr["dueAmount"] = lblGrandTotal.text ?? ""
+        //        dataArr["dueAmount"] = lblGrandTotal.text ?? ""
         dataArr["endTime"] = txtFinishTime.text ?? ""
         
         dataArr["otherChargesName1"] = txtOtherCharges1Text.text ?? ""
@@ -267,20 +329,20 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         dataArr["laserRentValue2"] = txtLaserFee2Amount.text?.replacingOccurrences(of: "$", with: "", options: .literal, range: nil) ?? ""
         dataArr["laserRentValue3"] = txtLaserFee3Amount.text?.replacingOccurrences(of: "$", with: "", options: .literal, range: nil) ?? ""
         dataArr["laserRentValue4"] = txtLaserFee4Amount.text?.replacingOccurrences(of: "$", with: "", options: .literal, range: nil) ?? ""
-
+        
         dataArr["startTime"] = txtStartTime.text ?? ""
         dataArr["totalChargesName"] = txtTotalFeeCharges.text ?? ""
         dataArr["totalChargesValue"] = txtTotalFeeAmount.text ?? ""
         dataArr["totalTime"] = txtTotalHours.text ?? ""
         
         
-
+        
         if (InvoiceData.count != 0){
             DataManager.shared.updateInvoiceData(entity: entity, dataArr: dataArr)
         }else{
             DataManager.shared.saveData(entity: entity, dataArr: dataArr)
         }
-       
+        
         
     }
     
@@ -339,7 +401,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         }
         
         for item in InvoiceRecordData {
-
+            
             guard let data  = item as? NSManagedObject else {return}
             
             if  let feeStr = data.value(forKey: "fee") as? String, let fee = Float(feeStr) {
@@ -349,7 +411,7 @@ class InvoiceVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         }
         
         lblGrandTotal.text = "\(otherChargesTotal + laserRentTotal + totalfee )"
-       
+        
     }
     
     

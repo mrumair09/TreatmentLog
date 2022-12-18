@@ -20,8 +20,6 @@
 		0124D70C2944C16800022A09 /* ToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D70B2944C16800022A09 /* ToolTip.swift */; };
 		0124D70E2944C1A000022A09 /* ToolTip.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124D70D2944C1A000022A09 /* ToolTip.xib */; };
 		0124D7102944DB2800022A09 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D70F2944DB2800022A09 /* Extention.swift */; };
-		0127519429434E4900A5C448 /* DropDownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127519229434E4900A5C448 /* DropDownVC.swift */; };
-		0127519529434E4900A5C448 /* DropDownVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0127519329434E4900A5C448 /* DropDownVC.xib */; };
 		0169D12A2947A9B600093EB9 /* ToolTipTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169D1282947A9B600093EB9 /* ToolTipTVC.swift */; };
 		0169D12B2947A9B600093EB9 /* ToolTipTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169D1292947A9B600093EB9 /* ToolTipTVC.xib */; };
 		01A9FF0429354762005C65F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A9FF0329354762005C65F3 /* AppDelegate.swift */; };
@@ -30,6 +28,8 @@
 		01A9FF0B29354762005C65F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A9FF0929354762005C65F3 /* Main.storyboard */; };
 		01A9FF0D29354764005C65F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A9FF0C29354764005C65F3 /* Assets.xcassets */; };
 		01A9FF1029354764005C65F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A9FF0E29354764005C65F3 /* LaunchScreen.storyboard */; };
+		01CFBB30294F65DA0036AD14 /* DatePickerToolTip.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01CFBB2F294F65DA0036AD14 /* DatePickerToolTip.xib */; };
+		01CFBB32294F65F20036AD14 /* DatePickerToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CFBB31294F65F20036AD14 /* DatePickerToolTip.swift */; };
 		2C842A22974F99EBD63335D3 /* Pods_TreatmentLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5355F3252D8042252531F0 /* Pods_TreatmentLog.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +47,6 @@
 		0124D70B2944C16800022A09 /* ToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTip.swift; sourceTree = "<group>"; };
 		0124D70D2944C1A000022A09 /* ToolTip.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolTip.xib; sourceTree = "<group>"; };
 		0124D70F2944DB2800022A09 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
-		0127519229434E4900A5C448 /* DropDownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownVC.swift; sourceTree = "<group>"; };
-		0127519329434E4900A5C448 /* DropDownVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownVC.xib; sourceTree = "<group>"; };
 		0169D1282947A9B600093EB9 /* ToolTipTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipTVC.swift; sourceTree = "<group>"; };
 		0169D1292947A9B600093EB9 /* ToolTipTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolTipTVC.xib; sourceTree = "<group>"; };
 		01A9FF0029354762005C65F3 /* TreatmentLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreatmentLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +57,8 @@
 		01A9FF0C29354764005C65F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01A9FF0F29354764005C65F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01A9FF1129354764005C65F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01CFBB2F294F65DA0036AD14 /* DatePickerToolTip.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerToolTip.xib; sourceTree = "<group>"; };
+		01CFBB31294F65F20036AD14 /* DatePickerToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerToolTip.swift; sourceTree = "<group>"; };
 		83AFAC97B199D2C90369D97C /* Pods-TreatmentLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreatmentLog.release.xcconfig"; path = "Target Support Files/Pods-TreatmentLog/Pods-TreatmentLog.release.xcconfig"; sourceTree = "<group>"; };
 		AD5355F3252D8042252531F0 /* Pods_TreatmentLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreatmentLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64CD11B8C9D9DEE78D3243A /* Pods-TreatmentLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreatmentLog.debug.xcconfig"; path = "Target Support Files/Pods-TreatmentLog/Pods-TreatmentLog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				0169D1272947A98C00093EB9 /* ToolTipTVC */,
-				0127519229434E4900A5C448 /* DropDownVC.swift */,
-				0127519329434E4900A5C448 /* DropDownVC.xib */,
 				0124D70B2944C16800022A09 /* ToolTip.swift */,
 				0124D70D2944C1A000022A09 /* ToolTip.xib */,
 			);
@@ -137,6 +135,8 @@
 			children = (
 				0169D1282947A9B600093EB9 /* ToolTipTVC.swift */,
 				0169D1292947A9B600093EB9 /* ToolTipTVC.xib */,
+				01CFBB2F294F65DA0036AD14 /* DatePickerToolTip.xib */,
+				01CFBB31294F65F20036AD14 /* DatePickerToolTip.swift */,
 			);
 			path = ToolTipTVC;
 			sourceTree = "<group>";
@@ -264,7 +264,7 @@
 				01A9FF0D29354764005C65F3 /* Assets.xcassets in Resources */,
 				011A4D2B29392631005C2DFD /* InvoiceTVC.xib in Resources */,
 				011A4D2129390084005C2DFD /* InvoiceSettingVC.xib in Resources */,
-				0127519529434E4900A5C448 /* DropDownVC.xib in Resources */,
+				01CFBB30294F65DA0036AD14 /* DatePickerToolTip.xib in Resources */,
 				0169D12B2947A9B600093EB9 /* ToolTipTVC.xib in Resources */,
 				012082A6294DC04A0089746F /* TreatmentDB.xcdatamodeld in Resources */,
 				011A4D262939031F005C2DFD /* InvoiceVC.xib in Resources */,
@@ -325,12 +325,12 @@
 				0120829F294D88920089746F /* DataManager.swift in Sources */,
 				01A9FF0829354762005C65F3 /* ViewController.swift in Sources */,
 				0169D12A2947A9B600093EB9 /* ToolTipTVC.swift in Sources */,
-				0127519429434E4900A5C448 /* DropDownVC.swift in Sources */,
 				011A4D1B29390038005C2DFD /* SettingVC.swift in Sources */,
 				0124D7102944DB2800022A09 /* Extention.swift in Sources */,
 				011A4D2A29392631005C2DFD /* InvoiceTVC.swift in Sources */,
 				011A4D252939031F005C2DFD /* InvoiceVC.swift in Sources */,
 				011A4D2029390084005C2DFD /* InvoiceSettingVC.swift in Sources */,
+				01CFBB32294F65F20036AD14 /* DatePickerToolTip.swift in Sources */,
 				01A9FF0429354762005C65F3 /* AppDelegate.swift in Sources */,
 				01A9FF0629354762005C65F3 /* SceneDelegate.swift in Sources */,
 			);

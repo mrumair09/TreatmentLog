@@ -45,11 +45,11 @@ class InvoiceSettingVC: UIViewController,UITextFieldDelegate {
         txtWvLgth.delegate = self
         txtCooling.delegate = self
         txtSpot.delegate = self
-        technicianData = DataManager.shared.retrieveData(entity: entity)
-        if (technicianData.count != 0){
-            result = technicianData[0] as? NSManagedObject
-            setupData()
-        }
+//        technicianData = DataManager.shared.retrieveData(entity: entity)
+//        if (technicianData.count != 0){
+//            result = technicianData[0] as? NSManagedObject
+//            setupData()
+//        }
         
     }
     

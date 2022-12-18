@@ -38,10 +38,8 @@ class ToolTip: UIView {
         popTip.cornerRadius = 12
         popTip.edgeMargin = 12.0
         popTip.isUserInteractionEnabled = true
-//        popTip.backgroundColor = UIColor.black
-//        popTip.shouldShowMask = true
         popTip.shouldDismissOnTap = false
-        popTip.bubbleColor = UIColor.white
+        popTip.bubbleColor = UIColor.systemGray6
         popTip.shouldDismissOnTapOutside = true
 //        popTip.actionAnimation = .bounce(16.0)
         
